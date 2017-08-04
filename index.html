@@ -13,7 +13,8 @@
     $(function() {
       $("#login").on("click", function(e) {
         e.preventDefault();
-        netlify.authenticate({provider:"github", scope: "user"}, function(err, data) {
+        var authenticator = new netlify.default ({site_id: "3e7f8e5e-4dd1-4a2b-a343-d555460bb66b"});
+        authenticator.authenticate({provider:"github", scope: "user"}, function(err, data) {
           if (err) {
             return $("#output").text("Error Authenticating with GitHub: " + err);
           }
